@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t tentativafc/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run tentativafc/docker-react npm run test -- --coverage
